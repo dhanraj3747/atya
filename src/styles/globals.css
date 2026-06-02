@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #FAF8F4;
+  color: #0B1B2B;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #F26B1F;
+  color: #fff;
+}
+
+/* Hide scrollbar — Lenis handles scrolling; the visible bar adds no value. */
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Legacy utilities kept temporarily — removed in Phase 9 cleanup
+   once every section is migrated to the new light theme tokens. */
+.gradient-text {
+  background: linear-gradient(135deg, #F26B1F, #F4B400, #1A2D44);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-orange {
+  background: linear-gradient(135deg, #F26B1F, #F58A4B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-orange {
+  box-shadow: 0 8px 24px -8px rgba(242, 107, 31, 0.35);
+}
+
+.glow-purple {
+  box-shadow: 0 8px 24px -8px rgba(11, 27, 43, 0.20);
+}
+
+.card-glass {
+  background: #FFFFFF;
+  border: 1px solid #E6E2DA;
+}
+
+/* New light-theme card surface — the canonical card style going forward */
+.card-paper {
+  background: #FFFFFF;
+  border: 1px solid #E6E2DA;
+  box-shadow: 0 4px 24px -8px rgba(11, 27, 43, 0.08);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.card-paper:hover {
+  box-shadow: 0 12px 36px -12px rgba(11, 27, 43, 0.15);
+}
+
+.noise-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .hairline {
+    height: 1px;
+    background-color: #F26B1F;
+    width: 2rem;
+  }
+}
