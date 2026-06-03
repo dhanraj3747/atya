@@ -156,7 +156,7 @@ export default function HRServices() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-body text-brand-muted max-w-sm leading-relaxed"
           >
-            From your first hire to your hundredth — we handle the people-ops so you can lead with clarity.
+            &ldquo;From your first hire to your hundredth, we handle the people-ops so you can lead with clarity.&rdquo;
           </motion.p>
         </div>
 

@@ -8,6 +8,8 @@ const photos = [
   { src: '/images/warehouse-1.jpg', alt: 'Atya warehouse — inventory and storage' },
   { src: '/images/warehouse-2.jpg', alt: 'Atya warehouse — picking and packing' },
   { src: '/images/warehouse-3.jpg', alt: 'Atya warehouse — dispatch operations' },
+    { src: '/images/Gurugram.jpeg', alt: 'Atya warehouse — Gurugram' },
+
 ]
 
 const ROTATION_MS = 5000
@@ -59,10 +61,10 @@ export default function WhoWeAre() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-body text-brand-muted text-lg leading-relaxed mb-6"
             >
-              Atya Ebiz Solutions LLP is a specialized partner for e-commerce sellers and brands —
-              offering end-to-end support from online onboarding to warehousing, inventory
-              management, order fulfilment and logistics coordination. We also provide strategic
-              HR and recruitment services for growing organizations.
+             Atya Ebiz Solutions LLP is a specialized partner for e-commerce sellers and brands 
+             offering end-to-end support from online onboarding to warehousing,inventory management,
+              order fulfilment, and logistics coordination. 
+              We also provide strategic HR and recruitment services for growing organizations.
             </motion.p>
 
             <motion.p
@@ -71,9 +73,9 @@ export default function WhoWeAre() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="font-body text-brand-muted leading-relaxed"
             >
-              We act as a reliable back-end operations arm so brands can avoid the complexity of
-              managing warehousing, inventory, dispatch, and marketplace compliance — and focus
-              on product, marketing, and growth.
+             We act as a reliable backend operations arm so brands can avoid the complexity of
+              managing warehousing, inventory,dispatch, and marketplace compliance and focus
+               on product, marketing, and growth.
             </motion.p>
           </div>
 

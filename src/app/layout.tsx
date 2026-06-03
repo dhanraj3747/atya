@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 import { Manrope, Inter } from 'next/font/google'
 import SmoothScroll from '@/components/ui/SmoothScroll'
-import '../styles/globals.css'
+import '@/styles/globals.css'
+
 
 const manrope = Manrope({
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
+  weight: ['500', '600', '700', '800'], 
   variable: '--font-display',
   display: 'swap',
 })

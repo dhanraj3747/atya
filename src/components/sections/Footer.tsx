@@ -19,9 +19,8 @@ const links = {
   Contact: [
     { label: 'info@atyaebizsolutions.com', href: 'mailto:info@atyaebizsolutions.com' },
     { label: 'atyaebiz@gmail.com', href: 'mailto:atyaebiz@gmail.com' },
-    { label: '+91 75440 00929', href: 'tel:+917544000929' },
-    { label: '+91 93414 56513', href: 'tel:+919341456513' },
-    { label: '+91 80735 16150', href: 'tel:+918073516150' },
+    { label: '+91 75440 00829', href: 'tel:+917544000829' },
+   
   ],
 }
 
@@ -44,7 +43,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="font-body text-white/60 text-sm leading-relaxed mb-6">
-              Your trusted back-end operations partner for e-commerce and HR — enabling you to scale without the complexity.
+            From warehouse to workforce, we enable your growth!<br/><br/>
+              Your trusted back-end operations partner for e-commerce and HR solutions, enabling you to scale without the complexity.
             </p>
           </div>
 

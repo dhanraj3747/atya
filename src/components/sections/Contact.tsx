@@ -238,9 +238,8 @@ export default function Contact() {
               {[
                 { label: 'Email', value: 'info@atyaebizsolutions.com', href: 'mailto:info@atyaebizsolutions.com' },
                 { label: '', value: 'atyaebiz@gmail.com', href: 'mailto:atyaebiz@gmail.com' },
-                { label: 'Phone', value: '+91 75440 00929', href: 'tel:+917544000929' },
-                { label: '', value: '+91 93414 56513', href: 'tel:+919341456513' },
-                { label: '', value: '+91 80735 16150', href: 'tel:+918073516150' },
+                { label: 'Phone', value: '+91 75440 00829', href: 'tel:+917544000829' },
+                
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
                   <span className="font-body text-brand-muted text-xs w-12 uppercase tracking-wider font-medium">{item.label}</span>

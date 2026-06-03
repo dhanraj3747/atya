@@ -64,6 +64,17 @@ export default function Hero() {
       {/* Content — pushed to bottom on mobile so photo is visible at top */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-16 min-h-screen flex flex-col justify-end md:justify-center">
         <div className="max-w-2xl">
+          
+          {/* Tagline Pre-header / Kicker */}
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.0 }}
+            className="block font-body text-xs md:text-sm font-bold uppercase tracking-widest text-brand-orange-light mb-3"
+          >
+            From Warehouse to Workforce, We Enable Your Growth!
+          </motion.span>
+
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -82,7 +93,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-body text-lg md:text-xl text-white/80 max-w-xl mb-10 leading-relaxed"
           >
-            End-to-end e-commerce fulfilment, warehousing, and HR solutions —
+            End-to-end e-commerce fulfilment, warehousing, and HR solutions -
             so you can focus on what matters most: growing your brand.
           </motion.p>
 

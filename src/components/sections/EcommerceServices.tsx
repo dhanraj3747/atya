@@ -14,7 +14,7 @@ import {
 // 6 sequential stations — the full fulfilment lifecycle.
 const stations = [
   { id: 'onboard', label: 'Onboard', sub: 'Marketplace setup & SKUs', icon: ClipboardList, xPct: 6, yPct: 50 },
-  { id: 'intake', label: 'Intake', sub: 'Warehouse receipt & inspect', icon: Warehouse, xPct: 23.6, yPct: 25 },
+  { id: 'intake', label: 'Intake', sub: 'Warehouse receipt & inspection', icon: Warehouse, xPct: 23.6, yPct: 25 },
   { id: 'process', label: 'Process', sub: 'Pick, pack, label & dispatch', icon: Package, xPct: 41.2, yPct: 60 },
   { id: 'ship', label: 'Ship', sub: 'Courier & last-mile', icon: Truck, xPct: 58.8, yPct: 30 },
   { id: 'report', label: 'Report', sub: 'Stock, sales & returns', icon: BarChart3, xPct: 76.4, yPct: 55 },
@@ -238,7 +238,7 @@ export default function EcommerceServices() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-body text-white/60 max-w-sm leading-relaxed"
           >
-            Six operational stages — from marketplace onboarding to scaling with your volume — handled in one pipeline.
+&ldquo;Six operational stages from marketplace onboarding to scaling, with your volume handled in one pipeline.&rdquo;
           </motion.p>
         </div>
 

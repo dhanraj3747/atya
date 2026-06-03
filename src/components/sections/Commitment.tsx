@@ -39,7 +39,7 @@ export default function Commitment() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-display text-3xl md:text-4xl font-700 leading-tight mb-8 text-balance text-white"
         >
-          More than a service provider —{' '}
+          More than a service provider {' '}
           <span className="text-brand-orange-light">a reliable business partner.</span>
         </motion.h2>
 

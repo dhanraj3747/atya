@@ -10,7 +10,7 @@ const stats = [
     icon: Warehouse,
     value: '2+',
     label: 'Warehouse Hubs',
-    description: 'Strategically located in Bengaluru & Gurugram',
+    description: 'Strategically located in Bengaluru and Gurugram',
   },
   {
     icon: Package,

@@ -13,7 +13,7 @@ const clients: ClientItem[] = [
   { type: 'logo', name: 'Iron Asylum', logo: '/images/Iron_Asylum_Logo__Gold_Silver-cropped_016e74d4-998f-4d04-a234-0e36ee073be1.svg' },
   { type: 'logo', name: 'Maxelon', logo: '/images/Maxelon-logo-2048x727.png', darkTile: true },
   { type: 'logo', name: 'Startek Aegis BPO', logo: '/images/clients/startek.png' },
-  { type: 'text', name: 'Grihveda' },
+    { type: 'logo', name: 'Grihveda', logo: '/images/Grihveda.jpeg' },
 ]
 
 export default function Clients() {
@@ -40,7 +40,7 @@ export default function Clients() {
           className="font-display text-4xl md:text-5xl font-700 leading-tight mb-6 max-w-2xl text-brand-navy"
         >
           Trusted by{' '}
-          <span className="text-brand-orange">reputed brands</span>{' '}
+          <span className="text-brand-orange">leading brands</span>{' '}
           across India.
         </motion.h2>
 
@@ -50,11 +50,17 @@ export default function Clients() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-body text-brand-muted leading-relaxed mb-12 max-w-3xl"
         >
-          At Atya Ebiz Solutions LLP, we take pride in partnering with reputed brands and organizations across
+          At Atya Ebiz Solutions LLP, we take pride in partnering with leading brands and organizations across
           warehousing operations, order fulfillment, logistics support, and business process services. Our
           commitment to operational excellence, timely execution, and customer-centric solutions has enabled us
-          to build trusted long-term relationships with our clients.
+          to build trusted long-term relationships with our clients.<br/><br/>
+
+
+          Our services are designed to support growing businesses with efficient warehousing, inventory management, fulfillment operations, manpower support, and streamlined backend processes tailored to their operational requirements. With a focus on reliability, scalability, and process-driven execution, we continue to strengthen our presence as a dependable business solutions partner.
         </motion.p>
+
+
+        
       </div>
 
       {/* Marquee strip — full width, no cards */}

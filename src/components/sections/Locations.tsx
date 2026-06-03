@@ -55,15 +55,16 @@ const cities: Record<string, City> = {
     label: 'Bengaluru',
     hub: true,
     role: 'Registered Office',
-    address: 'Survey No. 133/2, V Begur Hobli, Mylasandra, Begur, Bangalore South, Bengaluru – 560068',
+    address: 'Survey No. 133/2, V Begur Hobli, Mylasandra, Begur, Bengaluru South, Bengaluru, Karnataka, India, 560068',
   },
+
   gurugram: {
     lat: 28.4595,
     lng: 77.0266,
     label: 'Gurugram',
     hub: true,
     role: 'North India Hub',
-    address: 'Khewat No. 424, Mustil No. 13, Killa No. 22/2, Village Kankrola, PO Bhangrola, Gurugram – 122505',
+    address: 'Khewat No. 424, Mustil No. 13, Killa No. 22/2, Village Kankrola, PO Bhangrola, Gurugram, Haryana, India, 122505',
   },
   mumbai: { lat: 19.076, lng: 72.8777, label: 'Mumbai' },
   delhi: { lat: 28.7041, lng: 77.1025, label: 'Delhi' },
@@ -164,7 +165,7 @@ export default function Locations() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="font-body text-brand-muted leading-relaxed mb-8 max-w-md"
             >
-              Two operational hubs — North and South — with dispatch reach across 29,000+ pin codes through our partner logistics network.
+              Two operational hubs in the North and South, with a dispatch reach across 29,000+ PIN codes through our partner logistics network.
             </motion.p>
 
             <motion.div

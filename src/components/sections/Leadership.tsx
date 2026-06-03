@@ -3,28 +3,37 @@
 import { AnimatePresence, motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 
+// Updated data structure to include image paths
 const directors = [
   {
-    name: 'Akhil Raina',
+    name: 'MR. Akhil Raina',
     initials: 'AR',
     role: 'Founder Director',
     accent: 'orange' as const,
+    image: null ,// Fallback to initials since no image was provided
     bio: [
-      'Akhil Raina is a seasoned e-commerce and category management leader with over 14 years of experience across marketplaces, digital commerce, category growth, and strategic partnerships — bringing deep expertise in building scalable e-commerce businesses and driving operational excellence.',
-      'Previously, Akhil held high-impact roles at Flipkart, HomeLane, ShopX, and other digital-first consumer brands, where he led marketplace expansion across Blinkit, Zepto, BigBasket, and Instamart, strengthening supply chain efficiency and category P&L performance.',
-      'At Atya, he is focused on building the warehousing, fulfilment, and e-commerce operations engine — with a vision of creating technology-driven, process-oriented business solutions for manufacturers, brands, and emerging businesses across India.',
+      'Akhil Raina is a seasoned e-commerce and category management leader with over 14 years of extensive experience across marketplaces, digital commerce, category growth, business operations, and strategic partnerships. As Founder Director of Atya Ebiz Solutions LLP, he brings deep expertise in building scalable e-commerce businesses, driving operational excellence, and delivering sustainable revenue growth across multiple industry segments.',
+      'Over the course of his professional journey, Akhil has successfully led high-impact roles with leading organizations including Flipkart, HomeLane, and ShopX, as well as digital-first consumer brands. His expertise spans category management, marketplace operations, P&L ownership, quick-commerce expansion, vendor management, demand forecasting, and strategic growth execution.',
+      'Before joining Atya Ebiz Solutions LLP, Akhil played a pivotal role in scaling e-commerce businesses from early growth stages into high-performing revenue engines. He has successfully led marketplace expansion initiatives across platforms such as Blinkit, Zepto, bigbasket, and Instamart while strengthening supply chain efficiencies, improving fill rates, and driving customer-centric operational models.',
+      'At Atya Ebiz Solutions LLP, Akhil is focused on strengthening the company’s warehousing, order fulfilment, e-commerce operations, and business expansion initiatives. His vision is centered around building technology-driven, process-oriented, and scalable business solutions that support manufacturers, brands, and emerging businesses across India.',
+      'Known for his analytical mindset, leadership capabilities, and execution-focused approach, Akhil continues to play a key role in driving innovation, operational efficiency, and long-term business growth for the organization.',
     ],
   },
   {
-    name: 'Amarnath Rao',
+    name: 'MR. Amarnath Rao',
     initials: 'AM',
     role: 'Director',
     accent: 'navy' as const,
+    image: '/images/Amarnath.jpeg', // Add path to your public folder
     bio: [
-      'Amarnath Rao brings over 25 years of professional experience across telecom, utilities, BPO, infrastructure, FMCG, and supply chain management — combining deep operational expertise with strategic leadership across large-scale billing, collections, and warehouse coordination functions.',
-      'He has worked with leading organizations including Tata Steel Utilities & Infrastructure Services, Bharti Airtel, Dell International Services, and Siemens Energy Services, where he led ISO-certified process design, SAP implementations, and high-value utility billing operations.',
-      'At Atya, he is driving the company’s expansion in warehousing, logistics, fulfilment, and HR services — with a focus on building a reliable, scalable business ecosystem grounded in operational discipline and customer-centric delivery.',
+
+      'Amarnath Rao is the Director of Atya Ebiz Solutions LLP, a company focused on warehousing operations, order fulfilment, logistics coordination, and integrated business support services. With more than 25 years of professional experience across telecom, utilities, BPO, infrastructure, FMCG, finance operations, and supply chain management, he brings a strong combination of operational expertise and strategic leadership to the organization.',
+       'Throughout his career, Amarnath Rao has successfully managed large-scale billing operations, customer relationship management, credit control, collections, warehouse coordination, and process optimization initiatives. His extensive industry exposure has enabled him to build efficient operational systems that improve productivity, service quality, and customer satisfaction.',
+       'Before leading Atya Ebiz Solutions LLP, he worked with leading organizations including Tata Steel Utilities & Infrastructure Services Ltd, Bharti Airtel, Dell International Services, and Siemens Energy Services, where he handled critical functions related to utilities billing, SAP IS-U implementation, customer operations, collections management, and business excellence initiatives.',
+       'He has played a key role in establishing ISO-certified operational processes, implementing SAP IS-U and SAP S/4HANA systems, and managing these high-value corporate portfolios. Known for his structured leadership style, he has consistently demonstrated strengths in team management, SOP development, performance improvement, and operational compliance.',
+       'At Atya Ebiz Solutions LLP, he is actively driving the company’s expansion in warehousing, logistics support, fulfilment services, and HR solutions. His vision is to create a reliable and scalable business ecosystem that combines operational efficiency, technology-driven processes, and customer-centric service delivery.',
     ],
   },
   {
@@ -32,10 +41,14 @@ const directors = [
     initials: 'AT',
     role: 'COO — HR Services',
     accent: 'orange' as const,
+    image: '/images/Ajay-pp.jpg', // Add path to your public folder
     bio: [
-      'Ajay Vasant Takle is a seasoned HR, Administration, and Operations leader with nearly three decades of cross-industry experience spanning IT Services, Manufacturing, FMCG, Infrastructure, and Real Estate — with a track record of building and scaling HR functions from the ground up.',
-      'In prior senior leadership roles, Ajay led HR digitalization, talent acquisition, compensation structuring, compliance, and multi-location administration — partnering directly with promoters and CXOs to align workforce strategy with commercial priorities.',
-      'At Atya, he leads HR consulting, recruitment, and workforce planning — helping start-ups, D2C brands, and growing organizations establish structured hiring, performance frameworks, and people operations that scale with the business.',
+      'Ajay Vasant Takle is a seasoned Human Resources, Administration, and Operations leader with nearly three decades of cross-industry experience spanning IT Services, Manufacturing, FMCG, Infrastructure, Real Estate, and Business Operations. Over the course of his career, he has successfully built and scaled HR and operational functions from the ground up while driving organizational transformation, operational excellence, and people-centric growth strategies.',
+      'As the COO – HR Services at Atya Ebiz Solutions LLP, Ajay leads the company’s HR consulting, recruitment, and workforce planning initiatives. He works closely with startups, B2C/D2C brands, SMEs, and growing organizations to help them establish scalable HR systems, structured hiring processes, performance management frameworks, and efficient people operations aligned with business growth objectives.',
+      'Known for his practical leadership approach and strong execution capability, Ajay has led large-scale HR transformation initiatives including HR digitalization, policy governance, talent acquisition, compensation structuring, compliance management, employee engagement, and multi-location administration management. He has consistently partnered with promoters, CXOs, and business leaders to align workforce strategy with operational and commercial priorities.',
+      'Prior to joining Atya Ebiz Solutions LLP, Ajay held senior leadership positions across leading organizations, where he managed end-to-end HR operations, administration, facilities management, compliance frameworks, vendor governance, and organizational capability development.',
+      'With a strong blend of strategic HR leadership and operational management expertise, Ajay brings a solution-oriented and business-focused perspective to organizational growth. His vision is to help businesses build sustainable, process-driven, and high-performing work environments that support long-term scalability and operational excellence.',
+      'At Atya, he leads HR consulting, recruitment, and workforce planning by helping startups, B2C/D2C brands, SMEs, and growing organizations establish structured hiring, performance frameworks, and people operations that scale with the business.',
     ],
   },
 ]
@@ -93,7 +106,7 @@ export default function Leadership() {
             <span className="text-brand-orange">building Atya.</span>
           </motion.h2>
 
-          {/* Counter + arrows on the same row as the heading — desktop only (mobile uses swipe + dots) */}
+          {/* Counter + arrows — desktop only */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
@@ -147,16 +160,32 @@ export default function Leadership() {
                 }`}
               />
 
-              {/* Portrait + name block */}
-              <div className="relative md:col-span-4 flex md:flex-col items-start gap-6">
-                <div
-                  className={`shrink-0 w-24 h-24 md:w-36 md:h-36 rounded-2xl flex items-center justify-center text-white font-display text-3xl md:text-5xl font-extrabold tracking-tight shadow-lg ${
-                    director.accent === 'orange'
-                      ? 'bg-gradient-to-br from-brand-orange to-brand-orange-dark shadow-brand-orange/30'
-                      : 'bg-gradient-to-br from-brand-navy to-brand-navy-dark shadow-brand-navy/30'
-                  }`}
-                >
-                  {director.initials}
+              {/* Portrait Image or Initial-block dynamic stage */}
+              {/* CHANGED: Switched items-start to items-stretch for desktop, grid spanning updates */}
+              <div className="relative md:col-span-4 flex flex-row md:flex-col items-center md:items-stretch gap-6">
+                {/* CHANGED: Altered sizing from rigid 36x36 to flexible full-grid width with a maintainable 1:1 square aspect ratio on desktop */}
+                <div className="relative shrink-0 w-24 h-24 md:w-full md:h-auto md:aspect-square rounded-2xl overflow-hidden shadow-lg">
+                  {director.image ? (
+                    <Image
+                      src={director.image}
+                      alt={director.name}
+                      fill
+                      className="object-cover object-top"
+                      /* CHANGED: Adjusted sizes attribute to match larger viewport demands */
+                      sizes="(max-width: 768px) 96px, (max-width: 1200px) 300px, 400px"
+                      priority
+                    />
+                  ) : (
+                    <div
+                      className={`w-full h-full flex items-center justify-center text-white font-display text-3xl md:text-5xl font-extrabold tracking-tight ${
+                        director.accent === 'orange'
+                          ? 'bg-gradient-to-br from-brand-orange to-brand-orange-dark shadow-brand-orange/30'
+                          : 'bg-gradient-to-br from-brand-navy to-brand-navy-dark shadow-brand-navy/30'
+                      }`}
+                    >
+                      {director.initials}
+                    </div>
+                  )}
                 </div>
                 <div>
                   <h3 className="font-display text-2xl md:text-3xl font-700 text-brand-navy leading-tight">
@@ -184,7 +213,7 @@ export default function Leadership() {
             </motion.article>
           </AnimatePresence>
 
-          {/* Pagination dots — desktop only (mobile uses swipe + hint) */}
+          {/* Pagination dots — desktop only */}
           <div className="hidden md:flex justify-center gap-2 mt-8">
             {directors.map((_, i) => (
               <button
@@ -213,7 +242,7 @@ export default function Leadership() {
                   transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
                   className="text-brand-orange"
                 >
-                  ←
+                  &larr;
                 </motion.span>
                 <span className="font-body text-xs uppercase tracking-widest font-medium">
                   Swipe to explore
@@ -223,7 +252,7 @@ export default function Leadership() {
                   transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
                   className="text-brand-orange"
                 >
-                  →
+                  &rarr;
                 </motion.span>
               </motion.div>
             )}
