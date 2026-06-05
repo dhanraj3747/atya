@@ -60,21 +60,21 @@ export default function Hero() {
       {/* Dynamic Ambient Blur Glow */}
       <div className="absolute -top-32 -right-32 w-[32rem] h-[32rem] md:w-[45rem] h-[45rem] bg-brand-cyan/10 rounded-full blur-[120px] md:blur-[160px] pointer-events-none" />
 
-      {/* Main Content Area — Shifted up and centered flawlessly for mobile viewports */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 md:pt-36 pb-12 md:pb-20 min-h-screen flex flex-col justify-center">
+      {/* Main Content Area */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 md:pt-36 pb-12 md:pb-20 min-h-screen flex flex-col justify-start md:justify-center">
         <div className="max-w-2xl lg:max-w-3xl">
           
-          {/* Tagline Pre-header — Tightened spacing for improved mobile presentation */}
+          {/* Tagline Pre-header — UPDATED: Linked to the matching primary logo brand color */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.0 }}
             className="inline-flex flex-col gap-1.5 mb-5 md:mb-7 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
           >
-            <span className="block font-body text-lg sm:text-xl md:text-xl font-black uppercase tracking-[0.1em] text-brand-cyan leading-tight">
+            <span className="block font-body text-lg sm:text-xl md:text-xl font-black uppercase tracking-[0.1em] text-brand-blue-light leading-tight">
               FROM WAREHOUSE TO WORKFORCE,
             </span>
-            <span className="block font-body text-base sm:text-lg md:text-lg font-black md:font-semibold uppercase tracking-[0.08em] text-white md:text-white/70 leading-tight mt-0.5">
+            <span className="block font-body text-base sm:text-lg md:text-lg font-black uppercase tracking-[0.08em] text-brand-blue-light leading-tight mt-0.5">
               WE ENABLE YOUR GROWTH!
             </span>
           </motion.div>
