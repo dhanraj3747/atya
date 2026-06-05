@@ -16,17 +16,18 @@ module.exports = {
           navy: '#0B1B2B',
           'navy-light': '#1A2D44',
           'navy-dark': '#06121E',
-          orange: '#F26B1F',
-          'orange-light': '#F58A4B',
-          'orange-dark': '#C8501A',
+          // Premium corporate blues matching your logo screenshots
+          blue: '#1E40AF',          // Royal Blue ("scales")
+          'blue-light': '#3B82F6',    
+          'blue-dark': '#1D4ED8',     
+          sky: '#0284C7',             // Bright Sky Blue ("with you.") <-- ADDED THIS FOR ACCURATE MATCHING
+          cyan: '#06B6D4',            
           cream: '#FAF8F4',
           paper: '#FFFFFF',
           ink: '#0B1B2B',
           muted: '#5B6B7C',
           line: '#E6E2DA',
           yellow: '#F4B400',
-          // Legacy tokens kept temporarily so unmigrated components still compile.
-          // Removed in Phase 9 cleanup once every section uses the new palette.
           'purple-light': '#9B59F5',
           purple: '#6B0AC9',
           'orange-deprecated': '#FF5C00',

@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'E-Commerce', href: '#ecommerce' },
   { label: 'HR Solutions', href: '#hr' },
   { label: 'Why Us', href: '#why-us' },
+  { label: 'Clients', href: '#clients' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -23,12 +24,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Color tokens flip when scrolling onto the cream body background
+  // Color tokens flip when scrolling onto the light body background
   const wordmarkClr = scrolled ? 'text-brand-navy' : 'text-white'
-  const subClr = scrolled ? 'text-brand-muted' : 'text-white/60'
+  const subClr = scrolled ? 'text-brand-muted' : 'text-brand-cyan'
   const linkClr = scrolled
-    ? 'text-brand-navy/70 hover:text-brand-navy'
-    : 'text-white/75 hover:text-white'
+    ? 'text-brand-navy/70 hover:text-brand-blue font-semibold'
+    : 'text-white/80 hover:text-white font-medium'
   const iconClr = scrolled ? 'text-brand-navy' : 'text-white'
 
   return (
@@ -39,99 +40,110 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white/90 backdrop-blur-xl border-b border-brand-line shadow-sm'
-            : 'bg-transparent'
+            ? 'bg-white/95 backdrop-blur-xl border-b border-brand-line shadow-md py-3'
+            : 'bg-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-lg overflow-hidden border border-white/20 bg-white shrink-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+          {/* Logo Branding — Enlarged & Highly Legible */}
+          <a href="#" className="flex items-center gap-3.5 group shrink-0">
+            <div className="w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-md bg-white p-0.5 transition-transform duration-300 group-hover:scale-105 shadow-sm">
               <Image
                 src="/images/logo.jpeg"
                 alt="Atya Ebiz Solutions"
-                width={44}
-                height={44}
+                width={56}
+                height={56}
                 priority
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
-            <div>
-              <span className={`font-display font-700 text-lg leading-none block transition-colors duration-300 ${wordmarkClr}`}>Atya</span>
-              <span className={`text-xs font-body tracking-widest uppercase transition-colors duration-300 ${subClr}`}>Ebiz Solutions</span>
+            <div className="flex flex-col">
+              <span className={`font-display font-800 text-xl md:text-2xl tracking-wide leading-none transition-colors duration-300 ${wordmarkClr}`}>
+                Atya
+              </span>
+              <span className={`text-[10px] md:text-xs font-body font-700 tracking-[0.18em] uppercase transition-colors duration-300 mt-1 leading-none ${subClr}`}>
+                Ebiz Solutions
+              </span>
             </div>
           </a>
 
           {/* Desktop Links */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`font-body text-sm transition-colors duration-200 relative group ${linkClr}`}
+                className={`font-body text-[15px] transition-colors duration-200 relative group py-1 ${linkClr}`}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-brand-orange group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-cyan group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </div>
 
-          {/* CTA */}
+          {/* Desktop CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="#contact"
-              className="px-5 py-2.5 rounded-xl bg-brand-orange text-white font-body font-500 text-sm hover:bg-brand-orange-dark transition-all duration-200"
+              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-blue-dark to-brand-blue-light text-white font-body font-600 text-sm tracking-wide shadow-md shadow-brand-blue/20 hover:opacity-95 hover:shadow-lg transition-all duration-200"
             >
               Get Started
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`lg:hidden p-2 transition-colors duration-300 ${iconClr}`}
+            className={`lg:hidden p-2 rounded-lg transition-colors duration-300 focus:outline-none ${iconClr}`}
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            {menuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Fullscreen Navigation Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-brand-cream flex flex-col items-center justify-center gap-8 lg:hidden"
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed inset-0 z-40 bg-brand-navy flex flex-col justify-between px-6 pt-24 pb-12 lg:hidden"
           >
-            <button onClick={() => setMenuOpen(false)} className="absolute top-6 right-6 text-brand-navy">
-              <X size={28} />
-            </button>
-            {navLinks.map((link, i) => (
-              <motion.a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.07 }}
-                className="font-display text-3xl font-700 text-brand-navy/80 hover:text-brand-navy transition-colors"
-              >
-                {link.label}
-              </motion.a>
-            ))}
-            <motion.a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
+            {/* Subtle radial ambient shine inside mobile drawer view */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(6,182,212,0.08),transparent_65%)] pointer-events-none" />
+
+            <div className="flex flex-col gap-6 relative z-10 my-auto text-center">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  className="font-display text-2xl font-700 text-white/90 hover:text-brand-cyan transition-colors py-2"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </div>
+            
+            <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.45 }}
-              className="mt-4 px-8 py-3 rounded-xl bg-brand-orange text-white font-body font-500"
+              transition={{ delay: 0.35 }}
+              className="w-full relative z-10 mt-auto"
             >
-              Get Started
-            </motion.a>
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="block w-full text-center py-4 rounded-xl bg-gradient-to-r from-brand-blue-dark to-brand-blue-light text-white font-body font-600 text-base shadow-lg shadow-brand-blue-dark/20"
+              >
+                Get Started
+              </a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

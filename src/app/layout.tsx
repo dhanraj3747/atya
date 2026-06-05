@@ -3,7 +3,6 @@ import { Manrope, Inter } from 'next/font/google'
 import SmoothScroll from '@/components/ui/SmoothScroll'
 import '@/styles/globals.css'
 
-
 const manrope = Manrope({
   subsets: ['latin'],
   weight: ['500', '600', '700', '800'], 
@@ -22,6 +21,13 @@ export const metadata: Metadata = {
   title: 'Atya Ebiz Solutions LLP | E-Commerce & HR Solutions',
   description: 'End-to-end e-commerce fulfilment, warehousing, and HR solutions for brands that want to scale fast without the backend complexity.',
   keywords: 'ecommerce solutions, warehousing bangalore, HR recruitment, order fulfilment india, atya ebiz',
+  // 👇 Added icons configuration to load your corporate blue branding
+  icons: {
+    icon: '/icon.jpeg', // Points to public/favicon.ico
+    shortcut: '/icon.jpeg', // Points to public/favicon.ico
+    apple: '/icon.jpeg', // Optional: for iOS bookmark icons
+    
+  },
   openGraph: {
     title: 'Atya Ebiz Solutions LLP',
     description: 'Scale your brand with expert e-commerce operations and HR solutions.',

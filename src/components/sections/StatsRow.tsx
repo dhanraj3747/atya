@@ -65,11 +65,16 @@ export default function StatsRow() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="text-center px-6 py-4"
               >
-                <Icon className="w-10 h-10 mx-auto mb-4 text-brand-orange" strokeWidth={1.5} />
+                {/* FIX: Replaced orange with the vibrant brand cyan matching the logo frame */}
+                <Icon className="w-10 h-10 mx-auto mb-4 text-brand-cyan" strokeWidth={1.5} />
+                
                 <div className="font-display text-3xl md:text-4xl font-extrabold text-brand-navy mb-2">
                   <ShuffleText value={stat.value} delay={300 + i * 120} duration={600} />
                 </div>
-                <div className="w-8 h-px bg-brand-orange mx-auto mb-2" />
+                
+                {/* FIX: Replaced the orange bar with a premium brand blue-to-cyan gradient split line */}
+                <div className="w-10 h-[2px] bg-gradient-to-r from-brand-blue to-brand-cyan mx-auto mb-3 rounded-full" />
+                
                 <div className="font-body text-xs text-brand-muted tracking-widest uppercase font-semibold mb-2">
                   {stat.label}
                 </div>

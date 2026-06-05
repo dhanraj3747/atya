@@ -5,14 +5,12 @@ import { useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 
-// Updated data structure to include image paths
 const directors = [
   {
-    name: 'MR. Akhil Raina',
+    name: 'Akhil Raina',
     initials: 'AR',
     role: 'Founder Director',
-    accent: 'orange' as const,
-    image: null ,// Fallback to initials since no image was provided
+    image: null,
     bio: [
       'Akhil Raina is a seasoned e-commerce and category management leader with over 14 years of extensive experience across marketplaces, digital commerce, category growth, business operations, and strategic partnerships. As Founder Director of Atya Ebiz Solutions LLP, he brings deep expertise in building scalable e-commerce businesses, driving operational excellence, and delivering sustainable revenue growth across multiple industry segments.',
       'Over the course of his professional journey, Akhil has successfully led high-impact roles with leading organizations including Flipkart, HomeLane, and ShopX, as well as digital-first consumer brands. His expertise spans category management, marketplace operations, P&L ownership, quick-commerce expansion, vendor management, demand forecasting, and strategic growth execution.',
@@ -22,26 +20,23 @@ const directors = [
     ],
   },
   {
-    name: 'MR. Amarnath Rao',
+    name: 'Amarnath Rao',
     initials: 'AM',
     role: 'Director',
-    accent: 'navy' as const,
-    image: '/images/Amarnath.jpeg', // Add path to your public folder
+    image: '/images/Amarnath.jpeg',
     bio: [
-
       'Amarnath Rao is the Director of Atya Ebiz Solutions LLP, a company focused on warehousing operations, order fulfilment, logistics coordination, and integrated business support services. With more than 25 years of professional experience across telecom, utilities, BPO, infrastructure, FMCG, finance operations, and supply chain management, he brings a strong combination of operational expertise and strategic leadership to the organization.',
-       'Throughout his career, Amarnath Rao has successfully managed large-scale billing operations, customer relationship management, credit control, collections, warehouse coordination, and process optimization initiatives. His extensive industry exposure has enabled him to build efficient operational systems that improve productivity, service quality, and customer satisfaction.',
-       'Before leading Atya Ebiz Solutions LLP, he worked with leading organizations including Tata Steel Utilities & Infrastructure Services Ltd, Bharti Airtel, Dell International Services, and Siemens Energy Services, where he handled critical functions related to utilities billing, SAP IS-U implementation, customer operations, collections management, and business excellence initiatives.',
-       'He has played a key role in establishing ISO-certified operational processes, implementing SAP IS-U and SAP S/4HANA systems, and managing these high-value corporate portfolios. Known for his structured leadership style, he has consistently demonstrated strengths in team management, SOP development, performance improvement, and operational compliance.',
-       'At Atya Ebiz Solutions LLP, he is actively driving the company’s expansion in warehousing, logistics support, fulfilment services, and HR solutions. His vision is to create a reliable and scalable business ecosystem that combines operational efficiency, technology-driven processes, and customer-centric service delivery.',
+      'Throughout his career, Amarnath Rao has successfully managed large-scale billing operations, customer relationship management, credit control, collections, warehouse coordination, and process optimization initiatives. His extensive industry exposure has enabled him to build efficient operational systems that improve productivity, service quality, and customer satisfaction.',
+      'Before leading Atya Ebiz Solutions LLP, he worked with leading organizations including Tata Steel Utilities & Infrastructure Services Ltd, Bharti Airtel, Dell International Services, and Siemens Energy Services, where he handled critical functions related to utilities billing, SAP IS-U implementation, customer operations, collections management, and business excellence initiatives.',
+      'He has played a key role in establishing ISO-certified operational processes, implementing SAP IS-U and SAP S/4HANA systems, and managing these high-value corporate portfolios. Known for his structured leadership style, he has consistently demonstrated strengths in team management, SOP development, performance improvement, and operational compliance.',
+      'At Atya Ebiz Solutions LLP, he is actively driving the company’s expansion in warehousing, logistics support, fulfilment services, and HR solutions. His vision is to create a reliable and scalable business ecosystem that combines operational efficiency, technology-driven processes, and customer-centric service delivery.',
     ],
   },
   {
     name: 'Ajay Vasant Takle',
     initials: 'AT',
     role: 'COO — HR Services',
-    accent: 'orange' as const,
-    image: '/images/Ajay-pp.jpg', // Add path to your public folder
+    image: '/images/Ajay-pp.jpg',
     bio: [
       'Ajay Vasant Takle is a seasoned Human Resources, Administration, and Operations leader with nearly three decades of cross-industry experience spanning IT Services, Manufacturing, FMCG, Infrastructure, Real Estate, and Business Operations. Over the course of his career, he has successfully built and scaled HR and operational functions from the ground up while driving organizational transformation, operational excellence, and people-centric growth strategies.',
       'As the COO – HR Services at Atya Ebiz Solutions LLP, Ajay leads the company’s HR consulting, recruitment, and workforce planning initiatives. He works closely with startups, B2C/D2C brands, SMEs, and growing organizations to help them establish scalable HR systems, structured hiring processes, performance management frameworks, and efficient people operations aligned with business growth objectives.',
@@ -85,28 +80,31 @@ export default function Leadership() {
   return (
     <section id="leadership" ref={ref} className="relative py-32 overflow-hidden bg-white">
       <div className="relative max-w-7xl mx-auto px-6">
+        {/* Eyebrow Label — Line added back with brand-blue color to match Screenshot 2026-06-05 144759_4.png */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5 }}
           className="flex items-center gap-3 mb-6"
         >
-          <div className="w-8 h-px bg-brand-orange" />
-          <span className="text-brand-orange text-sm font-body tracking-widest uppercase font-medium">Leadership</span>
+          <div className="w-8 h-px bg-brand-blue" />
+          <span className="text-brand-blue text-xs md:text-sm font-body tracking-widest uppercase font-semibold">
+            Leadership
+          </span>
         </motion.div>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          {/* Headline — Restored color using the multi-toned system from Screenshot 2026-06-05 144759_4.png */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl md:text-5xl font-700 leading-tight max-w-2xl text-brand-navy"
           >
-            The team{' '}
-            <span className="text-brand-orange">building Atya.</span>
+            The team <span className="text-brand-blue">building</span> <span className="text-brand-sky">Atya.</span>
           </motion.h2>
 
-          {/* Counter + arrows — desktop only */}
+          {/* Counter + arrows */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
@@ -129,7 +127,7 @@ export default function Leadership() {
               <button
                 onClick={next}
                 aria-label="Next leader"
-                className="w-11 h-11 rounded-full border border-brand-line bg-brand-navy text-white flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange transition-colors"
+                className="w-11 h-11 rounded-full border border-brand-line bg-brand-navy text-white flex items-center justify-center hover:bg-brand-blue hover:border-brand-blue transition-colors"
               >
                 <ChevronRight size={20} />
               </button>
@@ -153,17 +151,11 @@ export default function Leadership() {
               onDragEnd={handleSwipeEnd}
               className="relative grid md:grid-cols-12 gap-10 p-8 md:p-12 rounded-3xl border border-brand-line bg-gradient-to-br from-white via-white to-brand-cream/60 shadow-card overflow-hidden touch-pan-y"
             >
-              {/* Decorative blob accent */}
-              <div
-                className={`absolute -top-24 -right-24 w-72 h-72 rounded-full blur-3xl pointer-events-none ${
-                  director.accent === 'orange' ? 'bg-brand-orange/15' : 'bg-brand-navy/15'
-                }`}
-              />
+              {/* Decorative background blob accent */}
+              <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full blur-3xl pointer-events-none bg-brand-blue/10" />
 
               {/* Portrait Image or Initial-block dynamic stage */}
-              {/* CHANGED: Switched items-start to items-stretch for desktop, grid spanning updates */}
               <div className="relative md:col-span-4 flex flex-row md:flex-col items-center md:items-stretch gap-6">
-                {/* CHANGED: Altered sizing from rigid 36x36 to flexible full-grid width with a maintainable 1:1 square aspect ratio on desktop */}
                 <div className="relative shrink-0 w-24 h-24 md:w-full md:h-auto md:aspect-square rounded-2xl overflow-hidden shadow-lg">
                   {director.image ? (
                     <Image
@@ -171,18 +163,12 @@ export default function Leadership() {
                       alt={director.name}
                       fill
                       className="object-cover object-top"
-                      /* CHANGED: Adjusted sizes attribute to match larger viewport demands */
                       sizes="(max-width: 768px) 96px, (max-width: 1200px) 300px, 400px"
                       priority
                     />
                   ) : (
-                    <div
-                      className={`w-full h-full flex items-center justify-center text-white font-display text-3xl md:text-5xl font-extrabold tracking-tight ${
-                        director.accent === 'orange'
-                          ? 'bg-gradient-to-br from-brand-orange to-brand-orange-dark shadow-brand-orange/30'
-                          : 'bg-gradient-to-br from-brand-navy to-brand-navy-dark shadow-brand-navy/30'
-                      }`}
-                    >
+                    /* Initials Fallback Block */
+                    <div className="w-full h-full flex items-center justify-center text-white font-display text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-br from-brand-blue to-brand-navy shadow-brand-blue/20">
                       {director.initials}
                     </div>
                   )}
@@ -191,7 +177,7 @@ export default function Leadership() {
                   <h3 className="font-display text-2xl md:text-3xl font-700 text-brand-navy leading-tight">
                     {director.name}
                   </h3>
-                  <p className="font-body text-brand-orange-dark text-xs mt-2 font-medium uppercase tracking-widest">
+                  <p className="font-body text-brand-blue text-xs mt-2 font-semibold uppercase tracking-widest">
                     {director.role}
                   </p>
                 </div>
@@ -213,7 +199,7 @@ export default function Leadership() {
             </motion.article>
           </AnimatePresence>
 
-          {/* Pagination dots — desktop only */}
+          {/* Pagination dots */}
           <div className="hidden md:flex justify-center gap-2 mt-8">
             {directors.map((_, i) => (
               <button
@@ -221,13 +207,13 @@ export default function Leadership() {
                 onClick={() => goTo(i)}
                 aria-label={`Show leader ${i + 1} of ${directors.length}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  activeIndex === i ? 'w-10 bg-brand-orange' : 'w-3 bg-brand-line hover:bg-brand-muted/40'
+                  activeIndex === i ? 'w-10 bg-brand-blue' : 'w-3 bg-brand-line hover:bg-brand-muted/40'
                 }`}
               />
             ))}
           </div>
 
-          {/* Mobile swipe hint — fades after first swipe */}
+          {/* Mobile swipe hint */}
           <AnimatePresence>
             {!hasSwiped && (
               <motion.div
@@ -240,7 +226,7 @@ export default function Leadership() {
                 <motion.span
                   animate={{ x: [-4, 0, -4] }}
                   transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="text-brand-orange"
+                  className="text-brand-blue font-700"
                 >
                   &larr;
                 </motion.span>
@@ -250,7 +236,7 @@ export default function Leadership() {
                 <motion.span
                   animate={{ x: [4, 0, 4] }}
                   transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="text-brand-orange"
+                  className="text-brand-blue font-700"
                 >
                   &rarr;
                 </motion.span>

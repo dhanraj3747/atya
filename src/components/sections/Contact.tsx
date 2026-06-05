@@ -68,8 +68,8 @@ function ServiceSelect({
         onClick={() => setOpen((o) => !o)}
         className={`w-full flex items-center justify-between gap-3 bg-brand-cream/50 border rounded-xl px-3 py-2.5 font-body text-sm transition-all ${
           open
-            ? 'border-brand-orange shadow-[0_0_0_3px_rgba(242,107,31,0.10)]'
-            : 'border-brand-line hover:border-brand-orange/40'
+            ? 'border-brand-blue shadow-[0_0_0_3px_rgba(29,78,216,0.10)]'
+            : 'border-brand-line hover:border-brand-blue/40'
         }`}
         aria-haspopup="listbox"
         aria-expanded={open}
@@ -123,13 +123,13 @@ function ServiceSelect({
                   role="option"
                   aria-selected={isActive}
                   className={`group w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
-                    isActive ? 'bg-brand-orange/8' : 'hover:bg-brand-cream'
+                    isActive ? 'bg-brand-blue/5' : 'hover:bg-brand-cream'
                   }`}
                 >
                   <span className="flex-1 min-w-0">
                     <div
                       className={`font-display text-sm font-700 leading-tight ${
-                        isActive ? 'text-brand-orange-dark' : 'text-brand-navy'
+                        isActive ? 'text-brand-blue' : 'text-brand-navy'
                       }`}
                     >
                       {opt.label}
@@ -141,7 +141,7 @@ function ServiceSelect({
                   <span
                     className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all ${
                       isActive
-                        ? 'bg-brand-orange text-white scale-100'
+                        ? 'bg-brand-blue text-white scale-100'
                         : 'bg-transparent text-transparent scale-75 border border-brand-line'
                     }`}
                   >
@@ -194,7 +194,8 @@ export default function Contact() {
 
   return (
     <section id="contact" ref={ref} className="relative py-32 overflow-hidden bg-white">
-      <div className="absolute left-1/2 top-1/4 -translate-x-1/2 w-96 h-96 bg-brand-orange/6 rounded-full blur-[120px]" />
+      {/* Soft Blue Radial Background Glow */}
+      <div className="absolute left-1/2 top-1/4 -translate-x-1/2 w-96 h-96 bg-brand-blue/5 rounded-full blur-[120px]" />
 
       <div className="relative max-w-7xl mx-auto px-6">
         <motion.div
@@ -203,12 +204,12 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-3 mb-6"
         >
-          <div className="w-8 h-px bg-brand-orange" />
-          <span className="text-brand-orange text-sm font-body tracking-widest uppercase font-medium">Get In Touch</span>
+          <div className="w-8 h-px bg-brand-blue" />
+          <span className="text-brand-blue text-sm font-body tracking-widest uppercase font-medium">Get In Touch</span>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left */}
+          {/* Left Side Content */}
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -217,7 +218,7 @@ export default function Contact() {
               className="font-display text-4xl md:text-5xl font-700 leading-tight mb-6 text-brand-navy"
             >
               Ready to scale?{' '}
-              <span className="text-brand-orange">Let&rsquo;s talk.</span>
+              <span className="text-brand-sky">Let&rsquo;s talk.</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -239,11 +240,12 @@ export default function Contact() {
                 { label: 'Email', value: 'info@atyaebizsolutions.com', href: 'mailto:info@atyaebizsolutions.com' },
                 { label: '', value: 'atyaebiz@gmail.com', href: 'mailto:atyaebiz@gmail.com' },
                 { label: 'Phone', value: '+91 75440 00829', href: 'tel:+917544000829' },
-                
+                { label: '', value: '+91 93414 56513', href: 'tel:+919341456513' },
+                { label: '', value: '+91 80735 16150', href: 'tel:+918073516150' },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
                   <span className="font-body text-brand-muted text-xs w-12 uppercase tracking-wider font-medium">{item.label}</span>
-                  <a href={item.href} className="font-body text-brand-navy hover:text-brand-orange transition-colors text-sm">
+                  <a href={item.href} className="font-body text-brand-navy hover:text-brand-sky transition-colors text-sm">
                     {item.value}
                   </a>
                 </div>
@@ -251,21 +253,20 @@ export default function Contact() {
             </motion.div>
           </div>
 
-          {/* Right: Form */}
+          {/* Right Side: Form Component Container */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative group"
           >
-            {/* Iridescent halo — visible on hover */}
-            <div className="pointer-events-none absolute -inset-[3px] rounded-[1.1rem] bg-[conic-gradient(from_120deg_at_50%_50%,#F26B1F,#F4B400,#9B59F5,#F58A4B,#F26B1F)] blur-[12px] opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
-            {/* Sharper gradient border ring just behind the card */}
-            <div className="pointer-events-none absolute -inset-px rounded-[1.1rem] bg-[conic-gradient(from_120deg_at_50%_50%,#F26B1F,#F4B400,#9B59F5,#F58A4B,#F26B1F)] opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
+            {/* Signature Corporate Blue Gradient Glow Effect */}
+            <div className="pointer-events-none absolute -inset-[3px] rounded-[1.1rem] bg-[conic-gradient(from_120deg_at_50%_50%,#1d4ed8,#38bdf8,#1d4ed8)] blur-[12px] opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
+            <div className="pointer-events-none absolute -inset-px rounded-[1.1rem] bg-[conic-gradient(from_120deg_at_50%_50%,#1d4ed8,#38bdf8,#1d4ed8)] opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
 
             {submitted ? (
               <div className="relative card-paper rounded-2xl p-10 text-center">
-                <CheckCircle size={48} className="text-brand-orange mx-auto mb-4" />
+                <CheckCircle size={48} className="text-brand-blue mx-auto mb-4" />
                 <h3 className="font-display text-2xl font-700 text-brand-navy mb-3">Message Received!</h3>
                 <p className="font-body text-brand-muted">We&rsquo;ll get back to you within 24 hours.</p>
               </div>
@@ -277,7 +278,7 @@ export default function Contact() {
                     <input
                       {...register('name', { required: true })}
                       placeholder="Your name"
-                      className={`w-full bg-brand-cream/50 border ${errors.name ? 'border-red-500/60' : 'border-brand-line'} rounded-xl px-4 py-3 font-body text-brand-navy text-sm placeholder-brand-muted/60 focus:outline-none focus:border-brand-orange transition-colors`}
+                      className={`w-full bg-brand-cream/50 border ${errors.name ? 'border-red-500/60' : 'border-brand-line'} rounded-xl px-4 py-3 font-body text-brand-navy text-sm placeholder-brand-muted/60 focus:outline-none focus:border-brand-blue transition-colors`}
                     />
                   </div>
                   <div>
@@ -285,7 +286,7 @@ export default function Contact() {
                     <input
                       {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
                       placeholder="your@email.com"
-                      className={`w-full bg-brand-cream/50 border ${errors.email ? 'border-red-500/60' : 'border-brand-line'} rounded-xl px-4 py-3 font-body text-brand-navy text-sm placeholder-brand-muted/60 focus:outline-none focus:border-brand-orange transition-colors`}
+                      className={`w-full bg-brand-cream/50 border ${errors.email ? 'border-red-500/60' : 'border-brand-line'} rounded-xl px-4 py-3 font-body text-brand-navy text-sm placeholder-brand-muted/60 focus:outline-none focus:border-brand-blue transition-colors`}
                     />
                   </div>
                 </div>
@@ -296,7 +297,7 @@ export default function Contact() {
                     <input
                       {...register('phone')}
                       placeholder="+91 00000 00000"
-                      className="w-full bg-brand-cream/50 border border-brand-line rounded-xl px-4 py-3 font-body text-brand-navy text-sm placeholder-brand-muted/60 focus:outline-none focus:border-brand-orange transition-colors"
+                      className="w-full bg-brand-cream/50 border border-brand-line rounded-xl px-4 py-3 font-body text-brand-navy text-sm placeholder-brand-muted/60 focus:outline-none focus:border-brand-blue transition-colors"
                     />
                   </div>
                   <div>
@@ -304,7 +305,7 @@ export default function Contact() {
                     <input
                       {...register('company')}
                       placeholder="Your brand / company"
-                      className="w-full bg-brand-cream/50 border border-brand-line rounded-xl px-4 py-3 font-body text-brand-navy text-sm placeholder-brand-muted/60 focus:outline-none focus:border-brand-orange transition-colors"
+                      className="w-full bg-brand-cream/50 border border-brand-line rounded-xl px-4 py-3 font-body text-brand-navy text-sm placeholder-brand-muted/60 focus:outline-none focus:border-brand-blue transition-colors"
                     />
                   </div>
                 </div>
@@ -326,14 +327,14 @@ export default function Contact() {
                     {...register('message')}
                     rows={4}
                     placeholder="Tell us about your brand and what you need..."
-                    className="w-full bg-brand-cream/50 border border-brand-line rounded-xl px-4 py-3 font-body text-brand-navy text-sm placeholder-brand-muted/60 focus:outline-none focus:border-brand-orange transition-colors resize-none"
+                    className="w-full bg-brand-cream/50 border border-brand-line rounded-xl px-4 py-3 font-body text-brand-navy text-sm placeholder-brand-muted/60 focus:outline-none focus:border-brand-blue transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-brand-orange text-white font-body font-500 hover:bg-brand-orange-dark transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-brand-blue text-white font-body font-500 hover:bg-brand-blue/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <span className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full" />

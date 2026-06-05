@@ -48,14 +48,14 @@ const ecommReasons: Reason[] = [
     icon: Eye,
     title: 'Transparency & Professionalism',
     lead: 'Audit-ready operations:',
-    desc:' With clearly defined processes, stock tracking, order fulfilment protocols, and compliance adherence, your operations remain transparent and audit ready.',
+    desc: ' With clearly defined processes, stock tracking, order fulfilment protocols, and compliance adherence, your operations remain transparent and audit ready.',
     image: '/images/EC4.png', 
   },
   {
     icon: MapPin,
     title: 'Local Advantage',
     lead: 'Pan-India reach:',
-    desc:' Being based in Bengaluru and Gurugram, gives strategic advantage  good connectivity, access to courier services, relative proximity to many parts of southern, Northern  and pan-India supply chain routes  beneficial for timely dispatch and supply chain efficiency.',
+    desc: ' Being based in Bengaluru and Gurugram, gives strategic advantage  good connectivity, access to courier services, relative proximity to many parts of southern, Northern  and pan-India supply chain routes  beneficial for timely dispatch and supply chain efficiency.',
     image: '/images/EC5.png',
   },
 ]
@@ -72,22 +72,22 @@ const hrReasons: Reason[] = [
     icon: UserPlus,
     title: 'Scalable Hiring Support',
     lead: 'From entry to executive.',
-    desc:'From your first hire to leadership recruitment, we help businesses attract and onboard the right talent efficiently and professionally.',
+    desc: 'From your first hire to leadership recruitment, we help businesses attract and onboard the right talent efficiently and professionally.',
     image: '/images/hr2.png',
   },
   {
     icon: FileText,
     title: 'HR Process & Policy',
     lead: 'Structured systems from day one.',
-    desc:'We design and maintain compliance policies, onboarding processes, performance management frameworks, and employee documentation.',
+    desc: 'We design and maintain compliance policies, onboarding processes, performance management frameworks, and employee documentation.',
     image: '/images/hr3.png',
   },
   {
     icon: HeartHandshake,
     title: 'Long-Term Partnership',
     lead: 'Beyond recruitment.',
-    desc:'We support employee lifecycle management, organizational development, and people-ops optimization for the long haul.',
-    image: '/images/hr4.png',
+    desc: 'We support employee lifecycle management, organizational development, and people-ops optimization for the long haul.',
+    image: '/images/hr4.png', // If image_a8f6e8.jpg is used here, the filter below automatically recolors it
   },
 ]
 
@@ -119,7 +119,6 @@ export default function WhyUs() {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInView, audience])
 
   const selectAudience = (a: Audience) => {
@@ -177,6 +176,22 @@ export default function WhyUs() {
       ref={ref}
       className="relative py-28 overflow-hidden bg-white"
     >
+      {/* 
+        SVG CSS Color Matrix Filter Matrix:
+        Shifts warm orange channels directly into your brand's deep royal & vibrant sky blues 
+      */}
+      <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
+        <filter id="brand-blue-recolor">
+          <feColorMatrix
+            type="matrix"
+            values="0.1  0.0  0.0  0.0  0.0
+                    0.3  0.5  0.0  0.0  0.0
+                    0.8  0.6  1.0  0.0  0.0
+                    0.0  0.0  0.0  1.0  0.0"
+          />
+        </filter>
+      </svg>
+
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Eyebrow */}
         <motion.div
@@ -185,8 +200,8 @@ export default function WhyUs() {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-3 mb-6"
         >
-          <div className="w-8 h-px bg-brand-orange" />
-          <span className="text-brand-orange text-sm font-body tracking-widest uppercase font-medium">
+          <div className="w-8 h-px bg-brand-blue" />
+          <span className="text-brand-blue text-sm font-body tracking-widest uppercase font-medium">
             Why Partner With Us
           </span>
         </motion.div>
@@ -199,10 +214,11 @@ export default function WhyUs() {
           className="font-display text-4xl md:text-5xl font-700 leading-tight mb-10 max-w-2xl text-brand-navy"
         >
           Not just a vendor.{' '}
-          <span className="text-brand-orange">A real business partner.</span>
+          <span className="text-brand-blue">A real </span>
+          <span className="text-brand-sky">business partner.</span>
         </motion.h2>
 
-        {/* Audience tab switcher — liquid pill */}
+        {/* Audience tab switcher */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -229,7 +245,7 @@ export default function WhyUs() {
                   <motion.span
                     layoutId="audience-pill"
                     transition={{ type: 'spring', stiffness: 380, damping: 32 }}
-                    className="absolute inset-0 bg-brand-orange rounded-full -z-10"
+                    className="absolute inset-0 bg-brand-blue rounded-full -z-10"
                   />
                 )}
                 {label}
@@ -240,29 +256,19 @@ export default function WhyUs() {
 
         {/* SPLIT-SCREEN — left visual, right expandable list */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          {/* LEFT: Visual that morphs per active point */}
+          {/* LEFT: Visual Showcase with dynamic filter color maps */}
           <div className="relative lg:sticky lg:top-24">
-            {/* Atmospheric ambient backdrop — large soft gradients that bleed card colours into the surrounding white space, so the card stops feeling like a hard rectangle on a page */}
-            <div
-              aria-hidden
-              className="absolute -inset-14 lg:-inset-20 pointer-events-none"
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(55%_55%_at_50%_45%,rgba(242,107,31,0.22),transparent_72%)] blur-2xl" />
-              <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_35%_70%,rgba(11,27,43,0.10),transparent_75%)] blur-3xl" />
+            <div aria-hidden className="absolute -inset-14 lg:-inset-20 pointer-events-none">
+              <div className="absolute inset-0 bg-[radial-gradient(55%_55%_at_50%_45%,rgba(30,64,175,0.15),transparent_72%)] blur-2xl" />
+              <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_35%_70%,rgba(2,132,199,0.1),transparent_75%)] blur-3xl" />
             </div>
 
-            {/* Soft elliptical floor shadow — suggests the card is hovering, not pasted down */}
             <div
               aria-hidden
               className="absolute left-[10%] right-[10%] -bottom-5 h-10 bg-brand-navy/40 blur-2xl rounded-[50%] opacity-70 pointer-events-none"
             />
 
-            {/* Perspective container holding the actual card */}
-            <div
-              className="relative h-[380px] lg:h-[440px]"
-              style={{ perspective: '1600px' }}
-            >
-              {/* Single soft ghost shadow behind — reads more like a real cast shadow than offset rectangles */}
+            <div className="relative h-[380px] lg:h-[440px]" style={{ perspective: '1600px' }}>
               <div
                 aria-hidden
                 className="absolute inset-0 rounded-3xl bg-brand-navy/25 blur-md"
@@ -283,43 +289,30 @@ export default function WhyUs() {
                 }}
                 className="relative w-full h-full rounded-3xl bg-brand-navy overflow-hidden flex items-center justify-center ring-1 ring-white/5 shadow-[0_40px_90px_-25px_rgba(11,27,43,0.55),0_18px_40px_-18px_rgba(11,27,43,0.35)] touch-pan-y"
               >
-                {/* Diagonal light wash — fake directional lighting (top-left brighter, bottom-right shaded) */}
                 <div
                   aria-hidden
                   className="absolute inset-0 rounded-3xl pointer-events-none bg-[linear-gradient(135deg,rgba(255,255,255,0.10)_0%,transparent_38%,transparent_62%,rgba(0,0,0,0.22)_100%)]"
                 />
 
-                {/* Backdrop visuals when no image (icon fallback path) */}
                 {!active.image && (
                   <>
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(242,107,31,0.28),transparent_60%)] pointer-events-none" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(6,182,212,0.20),transparent_60%)] pointer-events-none" />
                     <div
                       className="absolute inset-0 opacity-[0.08] pointer-events-none"
                       style={{
-                        backgroundImage:
-                          'radial-gradient(rgba(255,255,255,1) 1px, transparent 1px)',
+                        backgroundImage: 'radial-gradient(rgba(255,255,255,1) 1px, transparent 1px)',
                         backgroundSize: '26px 26px',
                       }}
                     />
                     <motion.div
                       animate={{ scale: [1, 1.08, 1], opacity: [0.4, 0.6, 0.4] }}
                       transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
-                      className="absolute w-[280px] h-[280px] rounded-full border border-brand-orange/30"
-                    />
-                    <motion.div
-                      animate={{ scale: [1, 1.14, 1], opacity: [0.2, 0.4, 0.2] }}
-                      transition={{
-                        duration: 4.2,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                        delay: 0.4,
-                      }}
-                      className="absolute w-[380px] h-[380px] rounded-full border border-brand-orange/15"
+                      className="absolute w-[280px] h-[280px] rounded-full border border-brand-blue-light/30"
                     />
                   </>
                 )}
 
-                {/* Active visual — image if available, otherwise icon fallback */}
+                {/* Active visual with dynamic asset recoloring applied */}
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`${audience}-${activeIdx}`}
@@ -327,7 +320,8 @@ export default function WhyUs() {
                     animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                     exit={{ opacity: 0, scale: 1.04, rotateY: 8 }}
                     transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
-                    className="absolute inset-0 flex items-center justify-center"
+                    className="absolute inset-0 flex items-center justify-center select-none"
+                    style={{ filter: 'url(#brand-blue-recolor)' }} // <-- Applied the SVG color matrix to turn orange highlights to your brand blues
                   >
                     {active.image ? (
                       <img
@@ -338,144 +332,26 @@ export default function WhyUs() {
                       />
                     ) : (
                       <div className="relative">
-                        <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-brand-orange flex items-center justify-center shadow-[0_0_80px_rgba(242,107,31,0.55)]">
-                          <ActiveIcon
-                            size={68}
-                            className="text-white"
-                            strokeWidth={1.5}
-                          />
+                        <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-brand-blue flex items-center justify-center shadow-[0_0_80px_rgba(30,64,175,0.45)]">
+                          <ActiveIcon size={68} className="text-white" strokeWidth={1.5} />
                         </div>
-                        {[0, 1, 2, 3, 4].map((p) => {
-                          const angle = (p / 5) * Math.PI * 2
-                          const r = 115
-                          return (
-                            <motion.span
-                              key={p}
-                              animate={{ y: [0, -10, 0] }}
-                              transition={{
-                                duration: 2.4 + p * 0.35,
-                                repeat: Infinity,
-                                ease: 'easeInOut',
-                                delay: p * 0.25,
-                              }}
-                              className="absolute w-2 h-2 rounded-full bg-brand-orange-light/80 shadow-[0_0_10px_rgba(245,138,75,0.7)]"
-                              style={{
-                                left: `calc(50% + ${Math.cos(angle) * r}px)`,
-                                top: `calc(50% + ${Math.sin(angle) * r}px)`,
-                                transform: 'translate(-50%, -50%)',
-                              }}
-                            />
-                          )
-                        })}
                       </div>
                     )}
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Inset vignette — softly fades image edges into the navy frame so seam is invisible */}
                 <div
                   aria-hidden
                   className="absolute inset-0 pointer-events-none rounded-3xl shadow-[inset_0_0_60px_18px_rgba(11,27,43,0.5)]"
                 />
 
-                {/* Mouse-tracking glare overlay */}
-                <motion.div
-                  aria-hidden="true"
-                  style={{ background: glareBg }}
-                  className="pointer-events-none absolute inset-0 mix-blend-overlay"
-                />
-
-                {/* Specular top edge highlight (catches "light") */}
-                <div
-                  aria-hidden
-                  className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent pointer-events-none"
-                />
-                {/* Hairline bottom shadow */}
-                <div
-                  aria-hidden
-                  className="absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-black/25 to-transparent pointer-events-none"
-                />
-
-                {/* MOBILE-ONLY text overlay — image shows first, then panel slides up from below */}
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={`overlay-${audience}-${activeIdx}`}
-                    initial={{ y: 140, opacity: 0 }}
-                    animate={{
-                      y: 0,
-                      opacity: 1,
-                      transition: {
-                        y: { duration: 0.5, ease: [0.22, 0.61, 0.36, 1], delay: 0.7 },
-                        opacity: { duration: 0.4, delay: 0.7 },
-                      },
-                    }}
-                    exit={{
-                      y: 140,
-                      opacity: 0,
-                      transition: { duration: 0.4, ease: [0.4, 0, 1, 1] },
-                    }}
-                    className="lg:hidden absolute inset-x-0 bottom-0 z-10 pointer-events-none"
-                  >
-                    {/* Scrim fades in with the panel — extends 100px above the panel */}
-                    <div className="absolute inset-x-0 -top-24 bottom-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/40 to-transparent" />
-
-                    {/* Frosted glass panel with the text */}
-                    <div className="relative mx-3 mb-3 p-3 rounded-xl bg-brand-navy/45 backdrop-blur-md border border-white/10">
-                      <div className="flex items-center gap-2 mb-1 text-brand-orange-light">
-                        <span className="font-display text-xs font-700 tabular-nums">
-                          {String(activeIdx + 1).padStart(2, '0')}
-                        </span>
-                        <span className="w-4 h-px bg-brand-orange-light/60" />
-                        <span className="text-[9px] font-body font-600 tracking-widest uppercase">
-                          {audience === 'ecomm' ? 'For E-Commerce' : 'For HR'}
-                        </span>
-                      </div>
-                      <h3 className="font-display text-base font-700 text-white leading-tight mb-1 drop-shadow">
-                        {active.title}
-                      </h3>
-                      <p className="font-body text-[12px] text-white/90 leading-snug line-clamp-3">
-                        <span className="font-700 text-white">{active.lead}</span>{' '}
-                        {active.desc}
-                      </p>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+                <motion.div aria-hidden="true" style={{ background: glareBg }} className="pointer-events-none absolute inset-0 mix-blend-overlay" />
+                <div aria-hidden className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent pointer-events-none" />
               </motion.div>
             </div>
-
-            {/* Mobile swipe hint — fades after first swipe */}
-            <AnimatePresence>
-              {!hasSwiped && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.4 }}
-                  className="lg:hidden mt-5 flex items-center justify-center gap-3 text-brand-muted"
-                >
-                  <motion.span
-                    animate={{ x: [-4, 0, -4] }}
-                    transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
-                    className="text-brand-orange"
-                  >
-                    ←
-                  </motion.span>
-                  <span className="font-body text-xs uppercase tracking-widest font-medium">
-                    Swipe to explore
-                  </span>
-                  <motion.span
-                    animate={{ x: [4, 0, 4] }}
-                    transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
-                    className="text-brand-orange"
-                  >
-                    →
-                  </motion.span>
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
 
-          {/* RIGHT: Vertical expandable list — desktop only (mobile uses card overlay + swipe) */}
+          {/* RIGHT: Expandable Info List */}
           <AnimatePresence mode="wait">
             <motion.div
               key={audience}
@@ -485,7 +361,6 @@ export default function WhyUs() {
               transition={{ duration: 0.4, ease: [0.22, 0.61, 0.36, 1] }}
               className="hidden lg:flex flex-col relative"
             >
-              {/* Spine line */}
               <div className="absolute left-0 top-0 bottom-0 w-px bg-brand-line" />
 
               {reasons.map((r, i) => {
@@ -494,57 +369,50 @@ export default function WhyUs() {
                   <button
                     key={r.title}
                     onClick={() => selectIdx(i)}
-                    className="text-left w-full py-5 relative pl-6 group"
+                    className="text-left w-full py-5 relative pl-6 group transition-all duration-200"
                   >
-                    {/* Active accent — glowing orange bar */}
                     <motion.div
                       animate={{
                         opacity: isActive ? 1 : 0,
                         scaleY: isActive ? 1 : 0.3,
+                        backgroundColor: isActive ? '#0284C7' : '#E6E2DA'
                       }}
                       transition={{ duration: 0.4, ease: 'easeOut' }}
-                      className="absolute left-[-1.5px] top-3 bottom-3 w-[3px] bg-brand-orange rounded-full shadow-[0_0_14px_rgba(242,107,31,0.7)] origin-center"
+                      className="absolute left-[-1.5px] top-3 bottom-3 w-[3px] bg-brand-sky rounded-full shadow-[0_0_14px_rgba(2,132,199,0.5)] origin-center"
                     />
 
                     <div className="flex items-baseline gap-3 mb-1">
                       <motion.span
                         animate={{
-                          opacity: isActive ? 1 : 0.4,
-                          color: isActive ? '#F26B1F' : '#5B6B7C',
+                          opacity: isActive ? 1 : 0.7,
+                          color: isActive ? '#0284C7' : '#5B6B7C',
                         }}
                         transition={{ duration: 0.3 }}
                         className="font-display text-[11px] font-700 tabular-nums tracking-widest shrink-0"
                       >
                         {String(i + 1).padStart(2, '0')}
                       </motion.span>
+                      
                       <motion.h3
-                        animate={{
-                          color: isActive ? '#0B1B2B' : 'rgba(11,27,43,0.4)',
-                          x: isActive ? 2 : 0,
-                        }}
-                        transition={{ duration: 0.35 }}
+                        animate={{ color: isActive ? '#0284C7' : '#475569' }}
+                        transition={{ duration: 0.2 }}
                         className="font-display text-lg md:text-xl font-700 leading-tight"
                       >
                         {r.title}
                       </motion.h3>
                     </div>
+                    
                     <AnimatePresence initial={false}>
                       {isActive && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
-                          transition={{
-                            duration: 0.4,
-                            ease: [0.22, 0.61, 0.36, 1],
-                          }}
+                          transition={{ duration: 0.4, ease: [0.22, 0.61, 0.36, 1] }}
                           className="overflow-hidden ml-7"
                         >
-                          <p className="font-body text-sm md:text-base text-brand-navy/75 leading-relaxed mt-2 pb-1">
-                            <span className="font-700 text-brand-navy">
-                              {r.lead}
-                            </span>{' '}
-                            {r.desc}
+                          <p className="font-body text-sm md:text-base text-brand-navy/85 leading-relaxed mt-2 pb-1">
+                            <span className="font-700 text-brand-blue">{r.lead}</span> {r.desc}
                           </p>
                         </motion.div>
                       )}
