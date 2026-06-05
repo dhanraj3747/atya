@@ -94,7 +94,9 @@ export default function Navbar() {
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors duration-300 focus:outline-none ${iconClr}`}
+            className={`lg:hidden p-2 rounded-lg transition-colors duration-300 focus:outline-none z-50 ${
+              menuOpen ? 'text-white' : iconClr
+            }`}
             aria-label="Toggle menu"
           >
             {menuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -106,40 +108,44 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="fixed inset-0 z-40 bg-brand-navy flex flex-col justify-between px-6 pt-24 pb-12 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            /* OPTIMIZED: Changed pt-32 to pt-24. This pulls "About" up slightly higher for a clean, non-overlapping gap */
+            className="fixed inset-0 z-40 bg-brand-navy flex flex-col justify-start px-6 pt-24 pb-8 lg:hidden overflow-y-auto"
           >
             {/* Subtle radial ambient shine inside mobile drawer view */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(6,182,212,0.08),transparent_65%)] pointer-events-none" />
 
-            <div className="flex flex-col gap-6 relative z-10 my-auto text-center">
+            {/* Links Block — Pure padding alignment, entirely avoiding margin collisions */}
+            <div className="flex flex-col gap-4 relative z-10 pt-0 text-center">
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  className="font-display text-2xl font-700 text-white/90 hover:text-brand-cyan transition-colors py-2"
+                  transition={{ delay: i * 0.04 }}
+                  className="font-display text-2xl font-bold text-white/95 hover:text-brand-cyan transition-colors py-2"
                 >
                   {link.label}
                 </motion.a>
               ))}
             </div>
             
+            {/* Action CTA Button Container */}
             <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.35 }}
-              className="w-full relative z-10 mt-auto"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.28 }}
+              className="w-full relative z-10 mt-8 pb-4"
             >
               <a
                 href="#contact"
                 onClick={() => setMenuOpen(false)}
-                className="block w-full text-center py-4 rounded-xl bg-gradient-to-r from-brand-blue-dark to-brand-blue-light text-white font-body font-600 text-base shadow-lg shadow-brand-blue-dark/20"
+                className="block w-full text-center py-4 rounded-xl bg-gradient-to-r from-brand-blue-dark to-brand-blue-light text-white font-body font-semibold text-base shadow-xl shadow-brand-blue-dark/20 active:scale-[0.99] transition-transform"
               >
                 Get Started
               </a>
