@@ -54,7 +54,7 @@ export default function Footer() {
             
             {/* Tagline: Balanced combination mimicking the hero headline gradient */}
             <p className="font-body text-base font-600 text-white leading-snug mb-3">
-              From warehouse to workforce,<br /> 
+               Warehouse to workforce,<br /> 
               <span className="bg-gradient-to-r from-brand-blue-light via-brand-cyan to-white bg-clip-text text-transparent font-700">
                 we enable your growth!
               </span>

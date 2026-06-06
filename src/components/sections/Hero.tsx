@@ -72,7 +72,7 @@ export default function Hero() {
             className="inline-flex flex-col gap-1.5 mb-5 md:mb-7 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
           >
             <span className="block font-body text-lg sm:text-xl md:text-xl font-black uppercase tracking-[0.1em] text-brand-blue-light leading-tight">
-              FROM WAREHOUSE TO WORKFORCE,
+             WAREHOUSE TO WORKFORCE,
             </span>
             <span className="block font-body text-base sm:text-lg md:text-lg font-black uppercase tracking-[0.08em] text-brand-blue-light leading-tight mt-0.5">
               WE ENABLE YOUR GROWTH!

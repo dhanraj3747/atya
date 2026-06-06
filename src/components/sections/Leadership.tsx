@@ -9,7 +9,7 @@ const directors = [
   {
     name: 'Akhil Raina',
     initials: 'AR',
-    role: 'Founder Director',
+    role: 'Founder & Director',
     image: null,
     bio: [
       'Akhil Raina is a seasoned e-commerce and category management leader with over 14 years of extensive experience across marketplaces, digital commerce, category growth, business operations, and strategic partnerships. As Founder Director of Atya Ebiz Solutions LLP, he brings deep expertise in building scalable e-commerce businesses, driving operational excellence, and delivering sustainable revenue growth across multiple industry segments.',

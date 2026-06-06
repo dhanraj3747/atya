@@ -14,7 +14,7 @@ import {
 const stations = [
   { id: 'onboard', label: 'Onboard', sub: 'SKU mapping & integration', icon: ClipboardList, xPct: 6, yPct: 50 },
   { id: 'intake', label: 'Receive', sub: 'Inbound receipt  & GRN Creation', icon: Warehouse, xPct: 23.6, yPct: 25 },
-  { id: 'process', label: 'Store', sub: 'bin allocation, Stock & inventory management', icon: Package, xPct: 41.2, yPct: 60 },
+  { id: 'process', label: 'Store', sub: 'Bin allocation, Stock & inventory management', icon: Package, xPct: 41.2, yPct: 60 },
   { id: 'ship', label: 'Fulfill', sub: 'Order picking, packing, labeling & quality checks', icon: Truck, xPct: 58.8, yPct: 30 },
   { id: 'report', label: 'Dispatch', sub: 'Timely dispatch & shipment tracking', icon: BarChart3, xPct: 76.4, yPct: 55 },
   { 

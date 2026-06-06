@@ -24,7 +24,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Color tokens flip when scrolling onto the light body background
   const wordmarkClr = scrolled ? 'text-brand-navy' : 'text-white'
   const subClr = scrolled ? 'text-brand-muted' : 'text-brand-cyan'
   const linkClr = scrolled
@@ -45,23 +44,25 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-          {/* Logo Branding — Enlarged & Highly Legible */}
+          {/* Logo Branding — BOLD & BALANCED */}
           <a href="#" className="flex items-center gap-3.5 group shrink-0">
             <div className="w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-md bg-white p-0.5 transition-transform duration-300 group-hover:scale-105 shadow-sm">
               <Image
                 src="/images/logo.jpeg"
                 alt="Atya Ebiz Solutions"
-                width={56}
-                height={56}
+                width={60}
+                height={60}
                 priority
                 className="w-full h-full object-contain"
               />
             </div>
             <div className="flex flex-col">
-              <span className={`font-display font-800 text-xl md:text-2xl tracking-wide leading-none transition-colors duration-300 ${wordmarkClr}`}>
+              {/* REDUCED: text-xl mobile, text-2xl tablet, text-3xl desktop — still bold */}
+              <span className={`font-display font-black text-xl md:text-2xl lg:text-3xl tracking-wider leading-none transition-colors duration-300 ${wordmarkClr}`}>
                 Atya
               </span>
-              <span className={`text-[10px] md:text-xs font-body font-700 tracking-[0.18em] uppercase transition-colors duration-300 mt-1 leading-none ${subClr}`}>
+              {/* Subtext slightly scaled back */}
+              <span className={`text-[12.5px] md:text-xs lg:text-sm font-body font-black tracking-[0.2em] uppercase transition-colors duration-300 mt-1 leading-none ${subClr}`}>
                 Ebiz Solutions
               </span>
             </div>
@@ -112,13 +113,10 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            /* OPTIMIZED: Changed pt-32 to pt-24. This pulls "About" up slightly higher for a clean, non-overlapping gap */
             className="fixed inset-0 z-40 bg-brand-navy flex flex-col justify-start px-6 pt-24 pb-8 lg:hidden overflow-y-auto"
           >
-            {/* Subtle radial ambient shine inside mobile drawer view */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(6,182,212,0.08),transparent_65%)] pointer-events-none" />
 
-            {/* Links Block — Pure padding alignment, entirely avoiding margin collisions */}
             <div className="flex flex-col gap-4 relative z-10 pt-0 text-center">
               {navLinks.map((link, i) => (
                 <motion.a
@@ -135,7 +133,6 @@ export default function Navbar() {
               ))}
             </div>
             
-            {/* Action CTA Button Container */}
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
